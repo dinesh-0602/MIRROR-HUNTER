@@ -123,8 +123,6 @@ def progress_bar(percentage):
     #percentage is on the scale of 0-1
     comp = FINISHED_PROGRESS_STR
     ncomp = UNFINISHED_PROGRESS_STR
-    pr = ""
-
     if isinstance(percentage, str):
         return "NaN"
 
@@ -133,12 +131,7 @@ def progress_bar(percentage):
     except:
         percentage = 0
 
-    for i in range(1,11):
-        if i <= int(percentage/10):
-            pr += comp
-        else:
-            pr += ncomp
-    return pr
+    return "".join(comp if i <= int(percentage/10) else ncomp for i in range(1,11))
 
 
 
