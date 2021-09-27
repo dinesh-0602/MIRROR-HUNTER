@@ -285,19 +285,19 @@ class MirrorListener(listeners.MirrorListeners):
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
                 msg += f'\n\nRequest by: {uname}'
-                msg_g = f'\n\n - 𝙽𝚎𝚟𝚎𝚛 𝚂𝚑𝚊𝚛𝚎 𝙶-𝙳𝚛𝚒𝚟𝚎\n - 𝙽𝚎𝚟𝚎𝚛 𝚂𝚑𝚊𝚛𝚎 𝙸𝚗𝚍𝚎𝚡 𝙻𝚒𝚗𝚔\n - 𝙹𝚘𝚒𝚗 𝚃𝙳 𝚃𝚘 𝙰𝚌𝚌𝚎𝚜𝚜 𝙶-𝙳𝚛𝚒𝚟𝚎 𝙻𝚒𝚗𝚔'
+                msg_g = '\n\n - 𝙽𝚎𝚟𝚎𝚛 𝚂𝚑𝚊𝚛𝚎 𝙶-𝙳𝚛𝚒𝚟𝚎\n - 𝙽𝚎𝚟𝚎𝚛 𝚂𝚑𝚊𝚛𝚎 𝙸𝚗𝚍𝚎𝚡 𝙻𝚒𝚗𝚔\n - 𝙹𝚘𝚒𝚗 𝚃𝙳 𝚃𝚘 𝙰𝚌𝚌𝚎𝚜𝚜 𝙶-𝙳𝚛𝚒𝚟𝚎 𝙻𝚒𝚗𝚔'
+
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
                 pass
             del download_dict[self.uid]
             count = len(download_dict)
-        fwdpm = f'\n\n𝐘𝐨𝐮 𝐂𝐚𝐧 𝐅𝐢𝐧𝐝 𝐔𝐩𝐥𝐨𝐚𝐝 𝐈𝐧 𝐏𝐫𝐢𝐯𝐚𝐭𝐞 𝐂𝐡𝐚𝐭 𝐨𝐫 𝐂𝐥𝐢𝐜𝐤 𝐛𝐮𝐭𝐭𝐨𝐧 𝐛𝐞𝐥𝐨𝐰 𝐭𝐨 𝐒𝐞𝐞 𝐚𝐭 𝐥𝐨𝐠 𝐜𝐡𝐚𝐧𝐧𝐞𝐥'
+        fwdpm = '\n\n𝐘𝐨𝐮 𝐂𝐚𝐧 𝐅𝐢𝐧𝐝 𝐔𝐩𝐥𝐨𝐚𝐝 𝐈𝐧 𝐏𝐫𝐢𝐯𝐚𝐭𝐞 𝐂𝐡𝐚𝐭 𝐨𝐫 𝐂𝐥𝐢𝐜𝐤 𝐛𝐮𝐭𝐭𝐨𝐧 𝐛𝐞𝐥𝐨𝐰 𝐭𝐨 𝐒𝐞𝐞 𝐚𝐭 𝐥𝐨𝐠 𝐜𝐡𝐚𝐧𝐧𝐞𝐥'
+
         logmsg = sendLog(msg + msg_g, self.bot, self.update, InlineKeyboardMarkup(buttons.build_menu(2)))
         if logmsg:
-            log_m = f"\n\n<b>Link Uploaded, Click Below Button👇</b>"
-        else:
-            pass
+            log_m = '\n\n<b>Link Uploaded, Click Below Button👇</b>'
         sendMarkup(msg + fwdpm, self.bot, self.update, InlineKeyboardMarkup([[InlineKeyboardButton(text="𝐂𝐋𝐈𝐂𝐊 𝐇𝐄𝐑𝐄", url=logmsg.link)]]))
         sendPrivate(msg + msg_g, self.bot, self.update, InlineKeyboardMarkup(buttons.build_menu(2)))
         if count == 0:

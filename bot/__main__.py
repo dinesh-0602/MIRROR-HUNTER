@@ -68,13 +68,13 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
             sendMessage(f"Hey I'm Alive 🙂\nSince: <code>{uptime}</code>", context.bot, update)
         else :
             sendMarkup(start_string, context.bot, update, reply_markup)
-    else :
-        sendMessage(f"Oops! not a Authorized user.", context.bot, update)
+    else:
+        sendMessage('Oops! not a Authorized user.', context.bot, update)
 
 
 def restart(update, context):
     restart_message = sendMessage("🔄️ 𝐑𝐄𝐒𝐓𝐀𝐑𝐓𝐈𝐍𝐆...", context.bot, update)
-    LOGGER.info(f'Restarting The Bot...')
+    LOGGER.info('Restarting The Bot...')
     # Save restart message object in order to reply to it after restarting
     with open(".restartmsg", "w") as f:
         f.truncate(0)
@@ -175,9 +175,7 @@ help = Telegraph(access_token=telegraph_token).create_page(
         html_content=help_string_telegraph,
     )["path"]
 
-help_string = f'''
-Raad Command Below
-'''
+help_string = '\x1fRaad Command Below\x1f'
 
 def bot_help(update, context):
     button = button_build.ButtonMaker()
